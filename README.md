@@ -133,26 +133,34 @@ Before reproducing the measurements, verify cryptographic correctness and ensure
 
 ## Performance Evaluation
 
-The experimental analysis focuses on the execution-time differences between scalar and optimized implementations.
+The experimental analysis focuses on the execution-time differences
+between scalar and optimized implementations.
 
-For a baseline implementation with execution time \(T_{\text{baseline}}\) and an optimized implementation with execution time \(T_{\text{optimized}}\), speedup is defined as:
+For a baseline implementation with execution time
+$T_{\text{baseline}}$ and an optimized implementation with execution
+time $T_{\text{optimized}}$, speedup is defined as:
 
-\[
+$$
 S = \frac{T_{\text{baseline}}}{T_{\text{optimized}}}
-\]
+$$
 
-A value greater than 1 indicates an improvement, while a value below 1 indicates a performance regression.
+A value greater than 1 indicates an improvement, while a value
+below 1 indicates a performance regression.
 
 Percentage execution-time reduction is calculated as:
 
-\[
+$$
 R = \left(1-\frac{T_{\text{optimized}}}{T_{\text{baseline}}}\right)\times100
-\]
+$$
 
-The experiments investigate whether observed differences depend on the parameter configuration, cryptographic operation, and optimization strategy.
+The experiments investigate whether observed differences depend
+on the parameter configuration, cryptographic operation, and
+optimization strategy.
 
-**Important:** ARM NEON acceleration does not guarantee a universal performance improvement. Some implementations may exhibit regressions due to additional computational overhead, data dependencies, memory behavior, or the characteristics of the underlying arithmetic.
-
+**Important:** ARM NEON acceleration does not guarantee a universal
+performance improvement. Some implementations may exhibit regressions
+due to additional computational overhead, data dependencies,
+memory behavior, or the characteristics of the underlying arithmetic.
 ## Experimental Results
 
 Benchmark results are stored in CSV files within the implementation directories and the `Statistics` directory.

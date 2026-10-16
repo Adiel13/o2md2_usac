@@ -1,28 +1,40 @@
 # O2MD²: Hardware Optimization Using ARM NEON and FFT
 
-**Research implementations and experimental performance evaluation of the O2MD² post-quantum cryptographic algorithm on ARM Cortex-A72 processors.**
+**Hardware-oriented optimization and experimental performance evaluation of the O2MD² post-quantum cryptographic algorithm on ARM Cortex-A72 processors.**
+
+[![Research](https://img.shields.io/badge/Research-Post--Quantum%20Cryptography-blue)](https://github.com/Adiel13/o2md2_usac)
+[![Architecture](https://img.shields.io/badge/Architecture-ARM%20Cortex--A72-green)](https://github.com/Adiel13/o2md2_usac)
+[![Platform](https://img.shields.io/badge/Platform-Raspberry%20Pi%204-red)](https://github.com/Adiel13/o2md2_usac)
+[![Language](https://img.shields.io/badge/Language-C-orange)](https://github.com/Adiel13/o2md2_usac)
 
 ## Overview
 
-This repository contains the source code and experimental implementations associated with the doctoral dissertation **"Optimización por hardware del algoritmo criptográfico post-cuántico O2MD²"**, developed at Universidad Francisco Marroquín (UFM), Guatemala, in 2026.
+This repository contains research implementations and experimental materials associated with the doctoral dissertation:
 
-The research investigates hardware-oriented optimization techniques for the O2MD² cryptographic algorithm, with particular emphasis on ARM NEON instructions and Fast Fourier Transform (FFT)-based polynomial arithmetic.
+**"Optimización por hardware del algoritmo criptográfico post-cuántico O2MD²"**
 
-The implementations were evaluated on a Raspberry Pi 4 equipped with an ARM Cortex-A72 processor.
+The research was conducted by **Kevin Adiel Lajpop Ajpacajá** at Universidad Francisco Marroquín (UFM), Guatemala, under the supervision of **Dr. Ricardo Neftalí Pontaza Rodas**, in 2026.
 
-The principal objectives are to:
+The project investigates hardware-oriented optimization strategies for the O2MD² cryptographic algorithm, focusing on ARM NEON instructions and Fast Fourier Transform (FFT)-based polynomial arithmetic.
 
-- Investigate the computational behavior of O2MD² on ARM processors.
-- Evaluate the impact of ARM NEON instructions on cryptographic operations.
-- Study FFT-based polynomial arithmetic and its interaction with NEON optimizations.
-- Compare optimized implementations against their corresponding baseline versions.
-- Provide experimental data for reproducible performance analysis.
+The experimental platform is a Raspberry Pi 4 equipped with an ARM Cortex-A72 processor.
 
-The research evaluates three cryptographic operations: **Key Generation (KeyGen), Encryption (Encrypt), and Decryption (Decrypt)**.
+The principal research objectives are:
+
+- Investigate the computational performance of O2MD² on ARM processors.
+- Evaluate ARM NEON optimization strategies for cryptographic operations.
+- Analyze FFT-based polynomial arithmetic and its computational characteristics.
+- Compare baseline, FFT, NEON, and FFT+NEON implementations.
+- Identify performance improvements and regressions across parameter configurations.
+- Support reproducible experimental evaluation of post-quantum cryptographic implementations.
+
+The experiments consider three cryptographic operations:
+
+**Key Generation (KeyGen), Encryption (Encrypt), and Decryption (Decrypt).**
 
 ## Implementation Variants
 
-The repository contains 12 O2MD² implementations organized into three parameter configurations and four implementation strategies.
+The repository contains **12 O2MD² implementation variants**, organized into three parameter configurations and four implementation strategies.
 
 | Configuration | Baseline | FFT | NEON | FFT + NEON |
 |---|---|---|---|---|
@@ -32,21 +44,27 @@ The repository contains 12 O2MD² implementations organized into three parameter
 
 ### Baseline Implementations
 
-The baseline implementations provide reference execution times for evaluating the optimization strategies.
+The baseline implementations serve as reference configurations for evaluating the performance of the optimized variants.
 
 ### FFT Implementations
 
-These variants investigate FFT-based approaches to polynomial arithmetic within the cryptographic implementation.
+The FFT variants investigate polynomial arithmetic based on the Fast Fourier Transform.
+
+Their objective is to study the computational behavior of FFT-based operations within O2MD².
 
 ### ARM NEON Implementations
 
-These variants incorporate ARM NEON intrinsics to investigate instruction-level optimization opportunities on ARM processors.
+The NEON variants incorporate ARM Advanced SIMD intrinsics to investigate hardware-oriented acceleration opportunities.
 
-The use of NEON intrinsics does not necessarily imply that every operation achieves parallel execution across multiple SIMD lanes.
+ARM NEON provides vector instructions capable of operating on multiple data elements under suitable conditions.
+
+However, the presence of NEON intrinsics does not necessarily imply that every operation is effectively vectorized or that every instruction processes multiple independent elements.
 
 ### FFT + ARM NEON Implementations
 
-These variants combine FFT-based polynomial arithmetic with ARM NEON intrinsics to investigate the interaction between the two optimization strategies.
+The combined implementations investigate the interaction between FFT-based polynomial arithmetic and ARM NEON instructions.
+
+These variants are evaluated independently because combining optimization techniques does not necessarily produce cumulative performance improvements.
 
 ## Experimental Platform
 
@@ -54,52 +72,75 @@ These variants combine FFT-based polynomial arithmetic with ARM NEON intrinsics 
 |---|---|
 | Development board | Raspberry Pi 4 |
 | Processor | ARM Cortex-A72 |
-| Architecture | ARMv8-A |
-| SIMD technology | ARM NEON / Advanced SIMD |
+| Instruction set | ARMv8-A |
+| SIMD extension | ARM NEON / Advanced SIMD |
 | Programming language | C |
-| Cryptographic algorithm | O2MD² |
+| Cryptographic scheme | O2MD² |
 | Evaluated operations | KeyGen, Encrypt, Decrypt |
 | Experimental repetitions | 100 per evaluated configuration |
 
-For rigorous reproduction, the operating system, compiler version, compilation flags, processor frequency, and measurement methodology should be documented alongside the experimental results.
+The Raspberry Pi 4 provides an ARM-based experimental environment for evaluating cryptographic implementations on resource-constrained computing platforms.
+
+Compiler versions, optimization flags, operating system configuration, processor frequency, and thermal conditions may affect the results.
 
 ## Repository Structure
 
+The research implementations are organized under `c implementation/CryptoAnalysis/`.
+
 ```text
 o2md2_usac/
-|
-+-- c implementation/
-|   |
-|   +-- CryptoAnalysis/
-|       |
-|       +-- O2MD2/
-|       |   +-- OH6416/
-|       |   +-- OH6416FFT/
-|       |   +-- OH6416NEON/
-|       |   +-- OH6416FFTNEON/
-|       |   +-- OH6432/
-|       |   +-- OH6432FFT/
-|       |   +-- OH6432NEON/
-|       |   +-- OH6432FFTNEON/
-|       |   +-- OH6464/
-|       |   +-- OH6464FFT/
-|       |   +-- OH6464NEON/
-|       |   +-- OH6464FFTNEON/
-|       |
-|       +-- NIST/
-|       +-- Statistics/
-|       +-- StatisticsMerger/
-|
-+-- README.md
+│
+├── c implementation/
+│   └── CryptoAnalysis/
+│       │
+│       ├── O2MD2/
+│       │   ├── OH6416/
+│       │   ├── OH6416FFT/
+│       │   ├── OH6416NEON/
+│       │   ├── OH6416FFTNEON/
+│       │   │
+│       │   ├── OH6432/
+│       │   ├── OH6432FFT/
+│       │   ├── OH6432NEON/
+│       │   ├── OH6432FFTNEON/
+│       │   │
+│       │   ├── OH6464/
+│       │   ├── OH6464FFT/
+│       │   ├── OH6464NEON/
+│       │   └── OH6464FFTNEON/
+│       │
+│       ├── NIST/
+│       ├── Statistics/
+│       └── StatisticsMerger/
+│
+└── README.md
 ```
 
-The `O2MD2` directory contains the 12 implementation variants.
+### O2MD2
 
-The `NIST` directory contains additional cryptographic implementations used for comparative evaluation, including variants from the NTRU, NTRU Prime, FrodoKEM, CRYSTALS-Kyber, and ThreeBears families.
+Contains the baseline and optimized implementations of the O2MD² cryptographic algorithm.
 
-These algorithms participated in different stages of the NIST post-quantum cryptography standardization process. Their inclusion does not imply that every implementation corresponds to a currently standardized algorithm.
+### NIST
 
-The `Statistics` directory contains experimental results used in the comparative performance analysis.
+Contains additional post-quantum cryptographic implementations used in the comparative evaluation, including variants of:
+
+- NTRU
+- NTRU Prime
+- FrodoKEM
+- CRYSTALS-Kyber
+- ThreeBears
+
+These implementations correspond to different stages of the NIST post-quantum cryptography standardization process.
+
+Their inclusion does not imply that all listed algorithms or variants are currently standardized by NIST.
+
+### Statistics
+
+Contains experimental data used for performance evaluation.
+
+### StatisticsMerger
+
+Contains materials associated with aggregating experimental results.
 
 ## Getting Started
 
@@ -107,16 +148,14 @@ The `Statistics` directory contains experimental results used in the comparative
 
 A compatible ARM development environment is recommended.
 
-The project primarily uses C and includes implementation-specific build files.
-
 Typical development tools include:
 
 - GCC or another compatible C compiler.
 - GNU Make.
-- An ARM processor supporting the required instructions.
-- Appropriate development libraries for the selected implementation.
+- An ARM processor supporting the required instruction set.
+- Implementation-specific development dependencies.
 
-Exact dependencies may vary between implementations.
+Exact dependencies and build requirements may vary across directories.
 
 ### Clone the Repository
 
@@ -127,7 +166,7 @@ cd o2md2_usac
 
 ### Select an Implementation
 
-For example, to inspect the FFT + NEON implementation for OH6416:
+For example, to inspect the OH6416 FFT+NEON variant:
 
 ```bash
 cd "c implementation/CryptoAnalysis/O2MD2/OH6416FFTNEON"
@@ -135,30 +174,36 @@ cd "c implementation/CryptoAnalysis/O2MD2/OH6416FFTNEON"
 
 ### Compilation
 
-Where an appropriate Makefile is available, compilation may be performed using:
+Where a suitable Makefile is available, compilation can be attempted using:
 
 ```bash
 make
 ```
 
-Build targets and compiler requirements may differ between directories. Consult the implementation-specific Makefile before compilation.
+Build targets, compiler options, and dependencies may vary between implementation directories.
 
-The source code should be compiled with an appropriate ARM toolchain and compatible architecture settings.
+Researchers should inspect the corresponding Makefile and source files before compiling.
 
-### Execution and Validation
+### Execution
 
-Before collecting benchmark results, verify that the selected implementation:
+Each implementation should be validated before performance measurements are collected.
 
-1. Compiles successfully.
-2. Produces correct cryptographic outputs.
-3. Passes the available correctness tests.
-4. Uses the intended implementation and optimization settings.
+The recommended procedure is to:
 
-Executable names and benchmark procedures depend on the selected implementation.
+1. Compile the selected implementation.
+2. Execute the available cryptographic correctness tests.
+3. Verify successful key generation, encryption, and decryption.
+4. Execute the appropriate benchmark programs or scripts.
+5. Record execution-time measurements.
+6. Export and analyze the experimental results.
+
+Executable names and benchmark commands are implementation-specific and should be verified in the corresponding source directory.
 
 ## Performance Evaluation
 
 The experimental analysis focuses on execution-time differences between baseline and optimized implementations.
+
+### Speedup
 
 For a baseline implementation with execution time $T_{\text{baseline}}$ and an optimized implementation with execution time $T_{\text{optimized}}$, speedup is defined as:
 
@@ -166,7 +211,13 @@ $$
 S = \frac{T_{\text{baseline}}}{T_{\text{optimized}}}
 $$
 
-A speedup greater than 1 indicates improved performance, whereas a value below 1 indicates a performance regression.
+Where:
+
+- $S > 1$: Performance improvement.
+- $S = 1$: Equivalent execution time.
+- $S < 1$: Performance regression.
+
+### Execution-Time Reduction
 
 The percentage reduction in execution time is calculated as:
 
@@ -174,156 +225,200 @@ $$
 R = \left(1-\frac{T_{\text{optimized}}}{T_{\text{baseline}}}\right)\times100
 $$
 
-Positive values indicate reduced execution time, while negative values indicate increased execution time.
+Positive values indicate reduced execution time, whereas negative values indicate increased execution time.
 
-### Evaluation Criteria
+### Evaluation Dimensions
 
-The experiments investigate performance differences according to:
+The experimental evaluation considers:
 
-- Cryptographic operation.
 - Parameter configuration.
-- Implementation strategy.
+- Cryptographic operation.
+- Optimization strategy.
 - Execution-time measurements.
-- Relative performance improvement or regression.
+- Relative performance improvements.
+- Performance regressions.
+- Statistical variability.
 
-**Important:** ARM NEON acceleration does not guarantee a universal performance improvement. Some implementations may exhibit regressions due to computational overhead, data dependencies, memory access patterns, or characteristics of the underlying arithmetic.
+### Interpretation
 
-The presence of SIMD instructions alone is not sufficient evidence of an effective vectorized speedup.
+**ARM NEON acceleration does not guarantee universal performance improvements.**
+
+The effectiveness of an optimization depends on the implementation, arithmetic operations, data dependencies, memory access patterns, compiler behavior, and characteristics of the target architecture.
+
+Consequently, FFT-based and NEON-based implementations are evaluated independently rather than assuming that optimization techniques always produce positive speedups.
 
 ## Experimental Results
 
 The repository contains CSV files generated during the experimental evaluation.
 
-These datasets support comparisons among the O2MD² implementation variants and the additional cryptographic implementations included in the study.
+These datasets support comparisons between the 12 O2MD² variants and additional post-quantum cryptographic implementations included in the research.
 
-The analysis considers the execution times of KeyGen, Encrypt, and Decrypt.
+The experiments examine execution-time measurements for KeyGen, Encrypt, and Decrypt.
 
-Reported averages should be interpreted together with the experimental conditions and, where applicable, appropriate measures of variability and statistical uncertainty.
+Results should be interpreted in relation to the specific hardware, software environment, and measurement methodology used.
+
+Average execution times alone do not establish statistical significance. Where appropriate, variability and uncertainty should also be considered.
 
 ## Reproducibility
 
-The repository is intended to support reproducible research in cryptographic performance optimization.
+This repository is intended to support reproducible research in cryptographic performance optimization.
 
 Researchers attempting to reproduce the experiments should document:
 
-1. Hardware specifications and processor architecture.
-2. Operating system and compiler versions.
-3. Compiler flags and optimization settings.
-4. Number of repetitions.
-5. Timing units and measurement methodology.
-6. Cryptographic correctness validation.
-7. Processor frequency and thermal conditions.
-8. Statistical analysis procedures.
+1. Processor and hardware specifications.
+2. Operating system version.
+3. Compiler version.
+4. Compilation and optimization flags.
+5. Number of experimental repetitions.
+6. Timing methodology and measurement units.
+7. Cryptographic correctness validation.
+8. Processor frequency and thermal conditions.
+9. Background system activity.
+10. Statistical analysis methodology.
 
-Comparisons should use equivalent experimental conditions wherever possible.
+Comparisons should be performed under equivalent experimental conditions wherever possible.
 
-Performance results obtained on other ARM processors or different compiler configurations may differ from those reported in the original experiments.
+Results obtained on other ARM processors or with different compiler configurations may differ from those observed on the Raspberry Pi 4.
 
 ## Research Scope and Limitations
 
-This repository supports research in:
+This repository supports research into:
 
 - Post-quantum cryptography.
 - ARM processor optimization.
-- SIMD instruction-level acceleration.
+- SIMD and instruction-level acceleration.
 - FFT-based polynomial arithmetic.
-- Embedded computing.
-- Cryptographic performance benchmarking.
-- Experimental reproducibility.
+- Embedded and resource-constrained computing.
+- Cryptographic benchmarking.
+- Experimental performance analysis.
+- Reproducible computational research.
 
-The research focuses on computational performance rather than providing a new security proof for O2MD².
+The research focuses on computational performance and hardware-oriented optimization.
 
-Performance improvements do not, by themselves, establish cryptographic security.
+It does not establish a new cryptographic security proof for O2MD².
 
-The implementations are provided as research artifacts and should not be assumed to be production-ready, independently security-audited, or suitable for protecting sensitive information without further validation.
+Performance improvements do not imply resistance to cryptanalysis, side-channel attacks, or quantum adversaries.
+
+The implementations are research artifacts and should not be assumed to be production-ready or independently security-audited.
 
 ## Academic Origin
 
-This repository contains implementations developed and evaluated as part of the following doctoral dissertation:
+This repository contains the research implementations used in the doctoral dissertation:
 
 **Optimización por hardware del algoritmo criptográfico post-cuántico O2MD²**
 
 | Field | Information |
 |---|---|
-| Author | Kevin Adiel Lajpop Ajpacajá |
-| Academic institution | Universidad Francisco Marroquín (UFM) |
-| Country | Guatemala |
+| Doctoral researcher | Kevin Adiel Lajpop Ajpacajá |
+| Institution | Universidad Francisco Marroquín (UFM) |
 | Doctoral program | Doctorado en Ciencias de la Computación |
+| Country | Guatemala |
 | Year | 2026 |
 | Doctoral advisor | Dr. Ricardo Neftalí Pontaza Rodas |
 
-The doctoral research investigates hardware-oriented optimization techniques for O2MD², particularly ARM NEON instructions and FFT-based implementations.
+The doctoral research investigates hardware-oriented optimization strategies for the O2MD² cryptographic algorithm.
+
+The research contributions include ARM NEON implementations, FFT-based variants, and experimental performance evaluation on ARM Cortex-A72 processors.
 
 The original cryptographic design and the doctoral optimization contributions are acknowledged separately.
 
-The repository is intended to support the dissemination and reproducibility of the associated academic research, subject to applicable intellectual property rights and distribution permissions.
-
 ## Acknowledgments
 
-The O2MD² cryptographic scheme was originally developed by **Ricardo Neftalí Pontaza Rodas and Ying-Dar Lin**.
+The O2MD² cryptographic scheme was originally developed by:
 
-The author acknowledges the academic guidance of Dr. Ricardo Neftalí Pontaza Rodas during the doctoral research conducted at Universidad Francisco Marroquín.
+- **Dr. Ricardo Neftalí Pontaza Rodas**
+- **Dr. Ying-Dar Lin**
 
-The repository also contains third-party cryptographic implementations used for comparative experimental analysis. Their original authorship and applicable licensing conditions remain with their respective contributors and rights holders.
+The doctoral researcher acknowledges the academic guidance of Dr. Ricardo Neftalí Pontaza Rodas during the research conducted at Universidad Francisco Marroquín.
+
+The repository also includes third-party post-quantum cryptographic implementations used for comparative evaluation.
+
+Original authorship, copyright notices, and applicable licenses remain associated with their respective components and rights holders.
 
 ## Intellectual Property and Patent Notice
 
-O2MD² is associated with a family of patent documents covering aspects of the original cryptographic technology.
+The original O2MD² cryptographic technology is associated with an international patent family covering aspects of its cryptographic methods and systems.
 
-The following documents have been identified:
+The patent documents identify **Ricardo Neftalí Pontaza Rodas and Ying-Dar Lin** as inventors.
 
-| Jurisdiction | Patent or Publication | Document Type |
+The patent records also identify National Chiao Tung University, subsequently incorporated into National Yang Ming Chiao Tung University, as the institutional applicant or assignee in relevant jurisdictions.
+
+### Patent Family
+
+The following documents have been identified in publicly available patent records:
+
+| Jurisdiction | Patent / Publication | Reported Status |
 |---|---|---|
-| United States | [US11218308B2](https://patents.google.com/patent/US11218308B2/en) | Granted patent |
-| China | [CN110958112B](https://patents.google.com/patent/CN110958112B/en) | Granted patent |
 | Taiwan | [TWI672932B](https://patents.google.com/patent/TWI672932B/en) | Granted patent |
-| Japan | [JP7053537B6](https://patents.google.com/patent/JP7053537B6/en) | Granted patent; corrected publication |
-| Europe | [EP3629517A1](https://patents.google.com/patent/EP3629517A1/en) | Published patent application |
-| South Korea | [KR102354456B1](https://patents.google.com/patent/KR102354456B1/en) | Granted patent |
-| Japan | [JP2022059057A](https://patents.google.com/patent/JP2022059057A/en) | Published divisional application |
+| China | [CN110958112B](https://patents.google.com/patent/CN110958112B/en) | Active |
+| United States | [US11218308B2](https://patents.google.com/patent/US11218308B2/en) | Active |
+| Japan | [JP7053537B6](https://patents.google.com/patent/JP7053537B6/en) | Active |
+| Europe | [EP3629517A1](https://patents.google.com/patent/EP3629517A1/en) | Withdrawn |
+| South Korea | [KR102354456B1](https://patents.google.com/patent/KR102354456B1/en) | Active |
+| Japan | [JP2022059057A](https://patents.google.com/patent/JP2022059057A/en) | Ceased |
 
-**Named inventors:**
+*The reported statuses reflect publicly available Google Patents records reviewed in October 2026. They are not independent legal determinations of current validity or enforceability.*
 
-- Ricardo Neftalí Pontaza Rodas.
-- Ying-Dar Lin.
+### Patent Expiration Information
 
-The listed documents are related to the original cryptographic technology. They do not necessarily represent seven independent inventions.
+The following estimated expiration dates were reported in the reviewed patent records:
 
-Patent publication and grant information should not be interpreted as confirmation of current enforceability, ownership, or legal status in every jurisdiction.
+| Jurisdiction | Patent | Reported Expiration |
+|---|---|---|
+| China | CN110958112B | December 18, 2038 |
+| United States | US11218308B2 | April 17, 2040 |
+| Japan | JP7053537B6 | July 2, 2039 |
+| South Korea | KR102354456B1 | August 21, 2039 |
 
-### Relationship to the Present Research
+Expiration dates are estimates and may be affected by maintenance fees, legal proceedings, patent adjustments, and other jurisdiction-specific events.
 
-The original O2MD² cryptographic design is distinguished from the hardware optimization and experimental evaluation conducted as part of the doctoral research.
+The Taiwanese patent is identified as granted; its current status and expiration date should be independently verified.
 
-The presence of ARM NEON or FFT-related modifications does not, by itself, establish freedom to operate under the original patents.
+### Relationship to the Doctoral Research
+
+The patents concern the original O2MD² cryptographic technology.
+
+The present repository documents hardware-oriented optimization and experimental evaluation performed during doctoral research.
+
+These contributions are academically distinct from the original cryptographic invention.
+
+However, the implementation of an optimization does not automatically establish freedom to operate under the underlying patents.
 
 ### Patent Rights Disclaimer
 
-**The public availability of this repository does not, by itself, grant a patent license or authorization to commercially exploit the patented cryptographic technology.**
+**Public availability of this repository does not, by itself, grant a license under any patent associated with O2MD².**
 
-Any permissions to use, reproduce, modify, distribute, or commercialize the implementations must be determined from the applicable copyright licenses, patent rights, and authorizations from the relevant rights holders.
+Any permissions to reproduce, distribute, modify, deploy, or commercially exploit the patented technology must be determined from the applicable licenses and authorizations of the relevant rights holders.
 
-This notice is provided for academic attribution and informational purposes and does not constitute legal advice.
+The information in this section is provided for academic attribution and documentation purposes and does not constitute legal advice.
 
 ## Software Licensing
 
-The repository contains original research contributions as well as implementations derived from or associated with existing cryptographic software.
+This repository contains research contributions and software components associated with existing cryptographic implementations.
 
-Licensing and distribution permissions must be verified for the respective components.
+The applicable copyright and patent permissions must be evaluated for the relevant components.
 
-No repository-wide open-source license is declared by this README.
+**No repository-wide open-source license is declared by this README.**
 
-Users should consult the applicable source files, third-party licenses, and rights holders before redistributing or commercially using the software.
+The absence of a repository-wide license should not be interpreted as permission to reproduce, redistribute, or commercially exploit all included source code.
+
+Users should consult the applicable original licenses, source-file notices, and rights holders before using or redistributing the implementations.
 
 ## Citation
 
-If you use this repository in academic work, please acknowledge the doctoral research and the original O2MD² cryptographic design.
+If you use this repository in academic work, please acknowledge the doctoral dissertation and the original O2MD² cryptographic design.
 
-**Doctoral dissertation:**
+### Doctoral Dissertation
 
 Lajpop Ajpacajá, K. A. (2026). *Optimización por hardware del algoritmo criptográfico post-cuántico O2MD²*. Doctoral dissertation, Universidad Francisco Marroquín, Guatemala.
 
-A persistent identifier and formal software citation may be added following the release and archival of an authorized, versioned research artifact.
+### Software Repository
+
+Lajpop Ajpacajá, K. A. (2026). *O2MD²: Hardware Optimization Using ARM NEON and FFT*. Research software repository.
+
+https://github.com/Adiel13/o2md2_usac
+
+A versioned software release and persistent DOI may be added after the applicable distribution permissions and reproducibility requirements have been verified.
 
 ## Repository
 

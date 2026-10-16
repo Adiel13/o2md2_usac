@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+type: software
+title: "O2MD2: ARM NEON Optimization and Performance Evaluation"
+authors:
+  - family-names: "Lajpo Ajpacajá"
+    given-names: "Kevin"
+repository-code: "https://github.com/Adiel13/o2md2_usac"
+abstract: >-
+  Research implementations of O2MD2 for ARM Cortex-A72,
+  including scalar, FFT, ARM NEON, and combined FFT+NEON
+  variants for experimental cryptographic performance evaluation.

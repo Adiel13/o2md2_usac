@@ -7,6 +7,15 @@
 #include "params_additionals.h"
 #include "common_defs.h"
 
+#include "params.h"
+
+unsigned long long f_original[dimension];
+unsigned long long f_p1[dimension];
+unsigned long long f_p2[dimension];
+
+unsigned long long p1;
+unsigned long long p2;
+
 int keySeedIndex = 0;
 
 void InitializeFramework()

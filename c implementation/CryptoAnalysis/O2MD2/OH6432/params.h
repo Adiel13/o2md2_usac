@@ -9,11 +9,11 @@
 #define b_tilde 41
 #define r 149
 
-unsigned long long f_original[dimension];
-unsigned long long f_p1[dimension];
-unsigned long long f_p2[dimension];
+extern unsigned long long f_original[dimension];
+extern unsigned long long f_p1[dimension];
+extern unsigned long long f_p2[dimension];
 
-unsigned long long p1;
-unsigned long long p2;
+extern unsigned long long p1;
+extern unsigned long long p2;
 
 #endif

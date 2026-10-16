@@ -33,7 +33,5 @@ void GenerateConvolutionTraditional(unsigned long long* result, unsigned long lo
 
 void GenerateConvolutionFFT(unsigned long long* result, unsigned long long* f, unsigned long long* g);
 
-int keySeedIndex;
-
 
 #endif

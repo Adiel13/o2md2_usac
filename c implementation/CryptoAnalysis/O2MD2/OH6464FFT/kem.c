@@ -6,7 +6,15 @@
 #include "api.h"
 #include "params_additionals.h"
 #include "common_defs.h"
+#include "params.h"
+#include <arm_neon.h>
 
+unsigned long long f_original[dimension];
+unsigned long long f_p1[dimension];
+unsigned long long f_p2[dimension];
+
+unsigned long long p1;
+unsigned long long p2;
 int keySeedIndex = 0;
 
 void InitializeFramework()
@@ -257,6 +265,64 @@ void GenerateConvolutionFFT(unsigned long long* result, unsigned long long* f, u
 	/*free(a);
 	free(b);*/
 
+}
+
+void GenerateConvolutionFFT_Neon(unsigned long long* result, unsigned long long* f, unsigned long long* g)
+{
+	complex* a;
+	complex* b;
+ 
+ int next_power_of_2;
+
+ next_power_of_2 = 1;
+ while (next_power_of_2 < dimension)
+	 next_power_of_2 <<= 1;
+
+ a = (complex*)malloc(2 * next_power_of_2 * sizeof(complex));
+ b = (complex*)malloc(2 * next_power_of_2 * sizeof(complex));
+
+ for (int i = 0; i < dimension; i++)
+ {
+	 a[i].r_complex = (double)f[i];
+	 a[i].i_complex = 0.0;
+
+	 b[i].r_complex = (double)g[i];
+	 b[i].i_complex = 0.0;
+ }
+ 	int x = 2 * next_power_of_2;
+	
+ for (int i = dimension; i < x; i++)
+ {
+	 a[i].r_complex = 0.0; 
+	 a[i].i_complex = 0.0;
+	 b[i].r_complex = 0.0; 
+	 b[i].i_complex = 0.0;
+ }
+   
+ int n = next_power_of_2;
+
+ poly_mul(a, b, 2*n);
+
+ //clear result
+ for(int i=0;i<dimension;i++){
+	 result[i] = 0;
+ }
+
+ int y = 2*n - 1;
+ for(int i=0;i<y;i++){
+	 result[i % dimension] += (unsigned long long)round(a[i].r_complex);
+ }
+
+ /*free(a);
+ free(b);*/
+
+}
+
+unsigned long long round_neon_double_to_ull(double val) {
+    float64x1_t vec = vdup_n_f64(val);             // Cargar el double en vector
+    float64x1_t rounded = vrndn_f64(vec);          // Redondear al entero más cercano
+    double result = vget_lane_f64(rounded, 0);     // Extraer el valor redondeado
+    return (unsigned long long)result;             // Convertir a unsigned long long
 }
 
 void GenerateConvolutionTraditional(unsigned long long* result, unsigned long long* f, unsigned long long* g)

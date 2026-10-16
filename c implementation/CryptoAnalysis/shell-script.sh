@@ -10,6 +10,12 @@ FOLDER_O2MD2_OH6464="O2MD2/OH6464"
 FOLDER_O2MD2_OH6416FFT="O2MD2/OH6416FFT"
 FOLDER_O2MD2_OH6432FFT="O2MD2/OH6432FFT"
 FOLDER_O2MD2_OH6464FFT="O2MD2/OH6464FFT"
+FOLDER_O2MD2_OH6416_NEON="O2MD2/OH6416NEON"
+FOLDER_O2MD2_OH6432_NEON="O2MD2/OH6432NEON"
+FOLDER_O2MD2_OH6464_NEON="O2MD2/OH6464NEON"
+FOLDER_O2MD2_OH6416FFT_NEON="O2MD2/OH6416FFTNEON"
+FOLDER_O2MD2_OH6432FFT_NEON="O2MD2/OH6432FFTNEON"
+FOLDER_O2MD2_OH6464FFT_NEON="O2MD2/OH6464FFTNEON"
 
 FOLDER_NTRU_HPS2048509="NIST/NTRU/ntru-hps2048509"
 FOLDER_NTRU_HPS2048677="NIST/NTRU/ntru-hps2048677"
@@ -43,6 +49,12 @@ FILE_O2MD2_OH6464="totalStatistics-O2MD2-OH6464.csv"
 FILE_O2MD2_OH6416FFT="totalStatistics-O2MD2-OH6416FFT.csv"
 FILE_O2MD2_OH6432FFT="totalStatistics-O2MD2-OH6432FFT.csv"
 FILE_O2MD2_OH6464FFT="totalStatistics-O2MD2-OH6464FFT.csv"
+FILE_O2MD2_OH6416_NEON="totalStatistics-O2MD2-OH6416NEON.csv"
+FILE_O2MD2_OH6432_NEON="totalStatistics-O2MD2-OH6432NEON.csv"
+FILE_O2MD2_OH6464_NEON="totalStatistics-O2MD2-OH6464NEON.csv"
+FILE_O2MD2_OH6416FFT_NEON="totalStatistics-O2MD2-OH6416FFTNEON.csv"
+FILE_O2MD2_OH6432FFT_NEON="totalStatistics-O2MD2-OH6432FFTNEON.csv"
+FILE_O2MD2_OH6464FFT_NEON="totalStatistics-O2MD2-OH6464FFTNEON.csv"
 
 FILE_NTRU_HPS2048509="totalStatisticsNTRU-hps2048509-Nano.csv"
 FILE_NTRU_HPS2048677="totalStatisticsNTRU-hps2048677-Nano.csv"
@@ -86,30 +98,36 @@ echo "	03. O2MD2: OH6464"
 echo "	04. O2MD2: OH6416FFT"
 echo "	05. O2MD2: OH6432FFT"
 echo "	06. O2MD2: OH6464FFT"
+echo "	07. O2MD2: OH6416NEON"
+echo "	08. O2MD2: OH6432NEON"
+echo "	09. O2MD2: OH6464NEON"
+echo "	10. O2MD2: OH6416FFTNEON"
+echo "	11. O2MD2: OH6432FFTNEON"
+echo "	12. O2MD2: OH6464FFTNEON"
 
-echo "	07. NTRU: HPS2048509"
-echo "	08. NTRU: HPS2048677"
-echo "	09. NTRU: HPS4096821"
-echo "	10. NTRU: HRSS701"
+echo "	13. NTRU: HPS2048509"
+echo "	14. NTRU: HPS2048677"
+echo "	15. NTRU: HPS4096821"
+echo "	16. NTRU: HRSS701"
 
-echo "	11. NTRU-Prime: NTRULPR653"
-echo "	12. NTRU-Prime: NTRULPR761"
-echo "	13. NTRU-Prime: NTRULPR857"
-echo "	14. NTRU-Prime: SNTRUP653"
-echo "	15. NTRU-Prime: SNTRUP761"
-echo "	16. NTRU-Prime: SNTRUP857"
+echo "	17. NTRU-Prime: NTRULPR653"
+echo "	18. NTRU-Prime: NTRULPR761"
+echo "	19. NTRU-Prime: NTRULPR857"
+echo "	20. NTRU-Prime: SNTRUP653"
+echo "	21. NTRU-Prime: SNTRUP761"
+echo "	22. NTRU-Prime: SNTRUP857"
 
-echo "	17. FRODO: FRODOKEM-640"
-echo "	18. FRODO: FRODOKEM-976"
-echo "	19. FRODO: FRODOKEM-1344"
+echo "	23. FRODO: FRODOKEM-640"
+echo "	24. FRODO: FRODOKEM-976"
+echo "	25. FRODO: FRODOKEM-1344"
 
-echo "	20. CRYSTAL: KYBER512"
-echo "	21. CRYSTAL: KYBER768"
-echo "	22. CRYSTAL: KYBER1024"
+echo "	26. CRYSTAL: KYBER512"
+echo "	27. CRYSTAL: KYBER768"
+echo "	28. CRYSTAL: KYBER1024"
 
-echo "	23. THREEBEARS: BABYBEAR"
-echo "	24. THREEBEARS: MAMABEAR"
-echo "	25. THREEBEARS: PAPABEAR"
+echo "	29. THREEBEARS: BABYBEAR"
+echo "	30. THREEBEARS: MAMABEAR"
+echo "	31. THREEBEARS: PAPABEAR"
 
 
 echo "Status:"
@@ -352,14 +370,14 @@ else
 	exit 1
 fi
 
-# ===== 7. NTRU-HPS2048509 =====
 
-LOCAL_FOLER="$FOLDER_NTRU_HPS2048509"
-LOCAL_FILE="$FILE_NTRU_HPS2048509"
-ALGORITHM_NAME="NTRU-HPS2048509"
+# ===== 7. O2MD2-OH6416-NEON =====
+
+LOCAL_FOLER="$FOLDER_O2MD2_OH6416_NEON"
+LOCAL_FILE="$FILE_O2MD2_OH6416_NEON"
+ALGORITHM_NAME="O2MD2-OH6416-NEON"
 index=7
 
-echo " "
 echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 
 {
@@ -380,7 +398,6 @@ if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
 else
 	echo "	$index.2 Created statistics file: Unsuccessful"
-	exit 1
 fi
 
 cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
@@ -392,11 +409,11 @@ else
 	exit 1
 fi
 
-# ===== 8. NTRU-HPS2048677 =====
+# ===== 8. O2MD2-OH6432-NEON =====
 
-LOCAL_FOLER="$FOLDER_NTRU_HPS2048677"
-LOCAL_FILE="$FILE_NTRU_HPS2048677"
-ALGORITHM_NAME="NTRU-HPS2048677"
+LOCAL_FOLER="$FOLDER_O2MD2_OH6432_NEON"
+LOCAL_FILE="$FILE_O2MD2_OH6432_NEON"
+ALGORITHM_NAME="O2MD2-OH6432-NEON"
 index=8
 
 echo " "
@@ -432,11 +449,11 @@ else
 	exit 1
 fi
 
-# ===== 9. NTRU-HPS4096821 =====
+# ===== 9. O2MD2-OH6464-NEON =====
 
-LOCAL_FOLER="$FOLDER_NTRU_HPS4096821"
-LOCAL_FILE="$FILE_NTRU_HPS4096821"
-ALGORITHM_NAME="NTRU-HPS4096821"
+LOCAL_FOLER="$FOLDER_O2MD2_OH6464_NEON"
+LOCAL_FILE="$FILE_O2MD2_OH6464_NEON"
+ALGORITHM_NAME="O2MD2-OH6464-NEON"
 index=9
 
 echo " "
@@ -472,11 +489,11 @@ else
 	exit 1
 fi
 
-# ===== 10. NTRU-HRSS701 =====
+# ===== 10. O2MD2-OH6416FFT-NEON =====
 
-LOCAL_FOLER="$FOLDER_NTRU_HRSS701"
-LOCAL_FILE="$FILE_NTRU_HRSS701"
-ALGORITHM_NAME="NTRU-HRSS701"
+LOCAL_FOLER="$FOLDER_O2MD2_OH6416FFT_NEON"
+LOCAL_FILE="$FILE_O2MD2_OH6416FFT_NEON"
+ALGORITHM_NAME="O2MD2-OH6416FFT-NEON"
 index=10
 
 echo " "
@@ -487,14 +504,14 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
-if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem_fft"; then
 	echo "	$index.1 Make: OK"
 else
 	echo "	$index.1 Make: Unsuccessful"
 	exit 1
 fi
 
-(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem_fft -noConsoleOutput)
 
 if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
@@ -512,11 +529,11 @@ else
 	exit 1
 fi
 
-# ===== 11. NTRUPRIME_NTRULPR653 =====
+# ===== 11. O2MD2-OH6432FFT-NEON =====
 
-LOCAL_FOLER="$FOLDER_NTRUPRIME_NTRULPR653"
-LOCAL_FILE="$FILE_NTRUPRIME_NTRULPR653"
-ALGORITHM_NAME="NTRUPRIME_NTRULPR653"
+LOCAL_FOLER="$FOLDER_O2MD2_OH6432FFT_NEON"
+LOCAL_FILE="$FILE_O2MD2_OH6432FFT_NEON"
+ALGORITHM_NAME="O2MD2-OH6432FFT-NEON"
 index=11
 
 echo " "
@@ -527,20 +544,14 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
-if test -f "$LOCAL_FOLER/run"; then
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem_fft"; then
 	echo "	$index.1 Make: OK"
 else
 	echo "	$index.1 Make: Unsuccessful"
 	exit 1
 fi
 
-(cd $LOCAL_FOLER && chmod 764 ./run)
-(cd $LOCAL_FOLER && chmod 764 ./build)
-(cd $LOCAL_FOLER && chmod 764 ./kat)
-{
-	(cd $LOCAL_FOLER && ./build)
-} &> /dev/null
-(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem_fft -noConsoleOutput)
 
 if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
@@ -558,11 +569,11 @@ else
 	exit 1
 fi
 
-# ===== 12. NTRUPRIME_NTRULPR761 =====
+# ===== 12. O2MD2-OH6464FFT-NEON =====
 
-LOCAL_FOLER="$FOLDER_NTRUPRIME_NTRULPR761"
-LOCAL_FILE="$FILE_NTRUPRIME_NTRULPR761"
-ALGORITHM_NAME="NTRUPRIME_NTRULPR761"
+LOCAL_FOLER="$FOLDER_O2MD2_OH6464FFT_NEON"
+LOCAL_FILE="$FILE_O2MD2_OH6464FFT_NEON"
+ALGORITHM_NAME="O2MD2-OH6464FFT-NEON"
 index=12
 
 echo " "
@@ -573,20 +584,14 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
-if test -f "$LOCAL_FOLER/run"; then
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem_fft"; then
 	echo "	$index.1 Make: OK"
 else
 	echo "	$index.1 Make: Unsuccessful"
 	exit 1
 fi
 
-(cd $LOCAL_FOLER && chmod 764 ./run)
-(cd $LOCAL_FOLER && chmod 764 ./build)
-(cd $LOCAL_FOLER && chmod 764 ./kat)
-{
-	(cd $LOCAL_FOLER && ./build)
-} &> /dev/null
-(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem_fft -noConsoleOutput)
 
 if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
@@ -604,11 +609,11 @@ else
 	exit 1
 fi
 
-# ===== 13. NTRUPRIME_NTRULPR857 =====
+# ===== 13. NTRU-HPS2048509 =====
 
-LOCAL_FOLER="$FOLDER_NTRUPRIME_NTRULPR857"
-LOCAL_FILE="$FILE_NTRUPRIME_NTRULPR857"
-ALGORITHM_NAME="NTRUPRIME_NTRULPR857"
+LOCAL_FOLER="$FOLDER_NTRU_HPS2048509"
+LOCAL_FILE="$FILE_NTRU_HPS2048509"
+ALGORITHM_NAME="NTRU-HPS2048509"
 index=13
 
 echo " "
@@ -619,20 +624,14 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
-if test -f "$LOCAL_FOLER/run"; then
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
 	echo "	$index.1 Make: OK"
 else
 	echo "	$index.1 Make: Unsuccessful"
 	exit 1
 fi
 
-(cd $LOCAL_FOLER && chmod 764 ./run)
-(cd $LOCAL_FOLER && chmod 764 ./build)
-(cd $LOCAL_FOLER && chmod 764 ./kat)
-{
-	(cd $LOCAL_FOLER && ./build)
-} &> /dev/null
-(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
 
 if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
@@ -650,11 +649,11 @@ else
 	exit 1
 fi
 
-# ===== 14. NTRUPRIME_SNTRUP653 =====
+# ===== 14. NTRU-HPS2048677 =====
 
-LOCAL_FOLER="$FOLDER_NTRUPRIME_SNTRUP653"
-LOCAL_FILE="$FILE_NTRUPRIME_SNTRUP653"
-ALGORITHM_NAME="NTRUPRIME_SNTRUP653"
+LOCAL_FOLER="$FOLDER_NTRU_HPS2048677"
+LOCAL_FILE="$FILE_NTRU_HPS2048677"
+ALGORITHM_NAME="NTRU-HPS2048677"
 index=14
 
 echo " "
@@ -665,20 +664,14 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
-if test -f "$LOCAL_FOLER/run"; then
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
 	echo "	$index.1 Make: OK"
 else
 	echo "	$index.1 Make: Unsuccessful"
 	exit 1
 fi
 
-(cd $LOCAL_FOLER && chmod 764 ./run)
-(cd $LOCAL_FOLER && chmod 764 ./build)
-(cd $LOCAL_FOLER && chmod 764 ./kat)
-{
-	(cd $LOCAL_FOLER && ./build)
-} &> /dev/null
-(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
 
 if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
@@ -696,11 +689,11 @@ else
 	exit 1
 fi
 
-# ===== 15. NTRUPRIME_SNTRUP761 =====
+# ===== 15. NTRU-HPS4096821 =====
 
-LOCAL_FOLER="$FOLDER_NTRUPRIME_SNTRUP761"
-LOCAL_FILE="$FILE_NTRUPRIME_SNTRUP761"
-ALGORITHM_NAME="NTRUPRIME_SNTRUP761"
+LOCAL_FOLER="$FOLDER_NTRU_HPS4096821"
+LOCAL_FILE="$FILE_NTRU_HPS4096821"
+ALGORITHM_NAME="NTRU-HPS4096821"
 index=15
 
 echo " "
@@ -711,20 +704,14 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
-if test -f "$LOCAL_FOLER/run"; then
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
 	echo "	$index.1 Make: OK"
 else
 	echo "	$index.1 Make: Unsuccessful"
 	exit 1
 fi
 
-(cd $LOCAL_FOLER && chmod 764 ./run)
-(cd $LOCAL_FOLER && chmod 764 ./build)
-(cd $LOCAL_FOLER && chmod 764 ./kat)
-{
-	(cd $LOCAL_FOLER && ./build)
-} &> /dev/null
-(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
 
 if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
@@ -742,11 +729,11 @@ else
 	exit 1
 fi
 
-# ===== 16. NTRUPRIME_SNTRUP857 =====
+# ===== 16. NTRU-HRSS701 =====
 
-LOCAL_FOLER="$FOLDER_NTRUPRIME_SNTRUP857"
-LOCAL_FILE="$FILE_NTRUPRIME_SNTRUP857"
-ALGORITHM_NAME="NTRUPRIME_SNTRUP857"
+LOCAL_FOLER="$FOLDER_NTRU_HRSS701"
+LOCAL_FILE="$FILE_NTRU_HRSS701"
+ALGORITHM_NAME="NTRU-HRSS701"
 index=16
 
 echo " "
@@ -757,6 +744,46 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 17. NTRUPRIME_NTRULPR653 =====
+
+LOCAL_FOLER="$FOLDER_NTRUPRIME_NTRULPR653"
+LOCAL_FILE="$FILE_NTRUPRIME_NTRULPR653"
+ALGORITHM_NAME="NTRUPRIME_NTRULPR653"
+index=17
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
 if test -f "$LOCAL_FOLER/run"; then
 	echo "	$index.1 Make: OK"
 else
@@ -788,51 +815,11 @@ else
 	exit 1
 fi
 
-# ===== 17. FRODO_640 =====
+# ===== 18. NTRUPRIME_NTRULPR761 =====
 
-LOCAL_FOLER="$FOLDER_FRODO_640"
-LOCAL_FILE="$FILE_FRODO_640"
-ALGORITHM_NAME="FRODO_640"
-index=17
-
-echo " "
-echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
-
-{
-	(cd $LOCAL_FOLER && make clean)
-	(cd $LOCAL_FOLER && make)
-} &> /dev/null
-
-if test -f "$LOCAL_FOLER/frodo/PQCtestKAT_kem"; then
-	echo "	$index.1 Make: OK"
-else
-	echo "	$index.1 Make: Unsuccessful"
-	exit 1
-fi
-
-(cd $LOCAL_FOLER && bash spinner.sh ./frodo/PQCtestKAT_kem -noConsoleOutput)
-
-if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
-	echo "	$index.2 Created statistics file: OK"
-else
-	echo "	$index.2 Created statistics file: Unsuccessful"
-	exit 1
-fi
-
-cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
-
-if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
-	echo "	$index.3 Moved statistics file: OK"
-else
-	echo "	$index.3 Moved statistics file: Unsuccessful"
-	exit 1
-fi
-
-# ===== 18. FRODO_976 =====
-
-LOCAL_FOLER="$FOLDER_FRODO_976"
-LOCAL_FILE="$FILE_FRODO_976"
-ALGORITHM_NAME="FRODO_976"
+LOCAL_FOLER="$FOLDER_NTRUPRIME_NTRULPR761"
+LOCAL_FILE="$FILE_NTRUPRIME_NTRULPR761"
+ALGORITHM_NAME="NTRUPRIME_NTRULPR761"
 index=18
 
 echo " "
@@ -843,14 +830,20 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
-if test -f "$LOCAL_FOLER/frodo/PQCtestKAT_kem"; then
+if test -f "$LOCAL_FOLER/run"; then
 	echo "	$index.1 Make: OK"
 else
 	echo "	$index.1 Make: Unsuccessful"
 	exit 1
 fi
 
-(cd $LOCAL_FOLER && bash spinner.sh ./frodo/PQCtestKAT_kem -noConsoleOutput)
+(cd $LOCAL_FOLER && chmod 764 ./run)
+(cd $LOCAL_FOLER && chmod 764 ./build)
+(cd $LOCAL_FOLER && chmod 764 ./kat)
+{
+	(cd $LOCAL_FOLER && ./build)
+} &> /dev/null
+(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
 
 if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
 	echo "	$index.2 Created statistics file: OK"
@@ -868,11 +861,11 @@ else
 	exit 1
 fi
 
-# ===== 19. FRODO_1344 =====
+# ===== 19. NTRUPRIME_NTRULPR857 =====
 
-LOCAL_FOLER="$FOLDER_FRODO_1344"
-LOCAL_FILE="$FILE_FRODO_1344"
-ALGORITHM_NAME="FRODO_1344"
+LOCAL_FOLER="$FOLDER_NTRUPRIME_NTRULPR857"
+LOCAL_FILE="$FILE_NTRUPRIME_NTRULPR857"
+ALGORITHM_NAME="NTRUPRIME_NTRULPR857"
 index=19
 
 echo " "
@@ -883,6 +876,190 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
+if test -f "$LOCAL_FOLER/run"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && chmod 764 ./run)
+(cd $LOCAL_FOLER && chmod 764 ./build)
+(cd $LOCAL_FOLER && chmod 764 ./kat)
+{
+	(cd $LOCAL_FOLER && ./build)
+} &> /dev/null
+(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 20. NTRUPRIME_SNTRUP653 =====
+
+LOCAL_FOLER="$FOLDER_NTRUPRIME_SNTRUP653"
+LOCAL_FILE="$FILE_NTRUPRIME_SNTRUP653"
+ALGORITHM_NAME="NTRUPRIME_SNTRUP653"
+index=20
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/run"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && chmod 764 ./run)
+(cd $LOCAL_FOLER && chmod 764 ./build)
+(cd $LOCAL_FOLER && chmod 764 ./kat)
+{
+	(cd $LOCAL_FOLER && ./build)
+} &> /dev/null
+(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 21. NTRUPRIME_SNTRUP761 =====
+
+LOCAL_FOLER="$FOLDER_NTRUPRIME_SNTRUP761"
+LOCAL_FILE="$FILE_NTRUPRIME_SNTRUP761"
+ALGORITHM_NAME="NTRUPRIME_SNTRUP761"
+index=21
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/run"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && chmod 764 ./run)
+(cd $LOCAL_FOLER && chmod 764 ./build)
+(cd $LOCAL_FOLER && chmod 764 ./kat)
+{
+	(cd $LOCAL_FOLER && ./build)
+} &> /dev/null
+(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 22. NTRUPRIME_SNTRUP857 =====
+
+LOCAL_FOLER="$FOLDER_NTRUPRIME_SNTRUP857"
+LOCAL_FILE="$FILE_NTRUPRIME_SNTRUP857"
+ALGORITHM_NAME="NTRUPRIME_SNTRUP857"
+index=22
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/run"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && chmod 764 ./run)
+(cd $LOCAL_FOLER && chmod 764 ./build)
+(cd $LOCAL_FOLER && chmod 764 ./kat)
+{
+	(cd $LOCAL_FOLER && ./build)
+} &> /dev/null
+(cd $LOCAL_FOLER && bash spinner.sh ./run -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 23. FRODO_640 =====
+
+LOCAL_FOLER="$FOLDER_FRODO_640"
+LOCAL_FILE="$FILE_FRODO_640"
+ALGORITHM_NAME="FRODO_640"
+index=23
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
 if test -f "$LOCAL_FOLER/frodo/PQCtestKAT_kem"; then
 	echo "	$index.1 Make: OK"
 else
@@ -908,171 +1085,11 @@ else
 	exit 1
 fi
 
-# ===== 20. CRYSTAL_512 =====
+# ===== 24. FRODO_976 =====
 
-LOCAL_FOLER="$FOLDER_CRYSTAL_512"
-LOCAL_FILE="$FILE_CRYSTAL_512"
-ALGORITHM_NAME="CRYSTAL_512"
-index=20
-
-echo " "
-echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
-
-{
-	(cd $LOCAL_FOLER && make clean)
-	(cd $LOCAL_FOLER && make)
-} &> /dev/null
-
-if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
-	echo "	$index.1 Make: OK"
-else
-	echo "	$index.1 Make: Unsuccessful"
-	exit 1
-fi
-
-(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
-
-if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
-	echo "	$index.2 Created statistics file: OK"
-else
-	echo "	$index.2 Created statistics file: Unsuccessful"
-	exit 1
-fi
-
-cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
-
-if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
-	echo "	$index.3 Moved statistics file: OK"
-else
-	echo "	$index.3 Moved statistics file: Unsuccessful"
-	exit 1
-fi
-
-# ===== 21. CRYSTAL_768 =====
-
-LOCAL_FOLER="$FOLDER_CRYSTAL_768"
-LOCAL_FILE="$FILE_CRYSTAL_768"
-ALGORITHM_NAME="CRYSTAL_768"
-index=21
-
-echo " "
-echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
-
-{
-	(cd $LOCAL_FOLER && make clean)
-	(cd $LOCAL_FOLER && make)
-} &> /dev/null
-
-if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
-	echo "	$index.1 Make: OK"
-else
-	echo "	$index.1 Make: Unsuccessful"
-	exit 1
-fi
-
-(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
-
-if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
-	echo "	$index.2 Created statistics file: OK"
-else
-	echo "	$index.2 Created statistics file: Unsuccessful"
-	exit 1
-fi
-
-cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
-
-if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
-	echo "	$index.3 Moved statistics file: OK"
-else
-	echo "	$index.3 Moved statistics file: Unsuccessful"
-	exit 1
-fi
-
-# ===== 22. CRYSTAL_1024 =====
-
-LOCAL_FOLER="$FOLDER_CRYSTAL_1024"
-LOCAL_FILE="$FILE_CRYSTAL_1024"
-ALGORITHM_NAME="CRYSTAL_1024"
-index=22
-
-echo " "
-echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
-
-{
-	(cd $LOCAL_FOLER && make clean)
-	(cd $LOCAL_FOLER && make)
-} &> /dev/null
-
-if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
-	echo "	$index.1 Make: OK"
-else
-	echo "	$index.1 Make: Unsuccessful"
-	exit 1
-fi
-
-(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
-
-if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
-	echo "	$index.2 Created statistics file: OK"
-else
-	echo "	$index.2 Created statistics file: Unsuccessful"
-	exit 1
-fi
-
-cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
-
-if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
-	echo "	$index.3 Moved statistics file: OK"
-else
-	echo "	$index.3 Moved statistics file: Unsuccessful"
-	exit 1
-fi
-
-# ===== 23. THREEBEARS_BABY =====
-
-LOCAL_FOLER="$FOLDER_THREEBEARS_BABY"
-LOCAL_FILE="$FILE_THREEBEARS_BABY"
-ALGORITHM_NAME="THREEBEARS_BABY"
-index=23
-
-echo " "
-echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
-
-{
-	(cd $LOCAL_FOLER && make clean)
-	(cd $LOCAL_FOLER && make)
-} &> /dev/null
-
-if test -f "$LOCAL_FOLER/build/genkat"; then
-	echo "	$index.1 Make: OK"
-else
-	echo "	$index.1 Make: Unsuccessful"
-	exit 1
-fi
-
-(cd $LOCAL_FOLER && bash spinner.sh ./build/genkat -noConsoleOutput)
-
-if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
-	echo "	$index.2 Created statistics file: OK"
-else
-	echo "	$index.2 Created statistics file: Unsuccessful"
-	exit 1
-fi
-
-cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
-
-if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
-	echo "	$index.3 Moved statistics file: OK"
-else
-	echo "	$index.3 Moved statistics file: Unsuccessful"
-	exit 1
-fi
-
-# ===== 24. THREEBEARS_MAMA =====
-
-LOCAL_FOLER="$FOLDER_THREEBEARS_MAMA"
-LOCAL_FILE="$FILE_THREEBEARS_MAMA"
-ALGORITHM_NAME="THREEBEARS_MAMA"
+LOCAL_FOLER="$FOLDER_FRODO_976"
+LOCAL_FILE="$FILE_FRODO_976"
+ALGORITHM_NAME="FRODO_976"
 index=24
 
 echo " "
@@ -1083,6 +1100,206 @@ echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
 	(cd $LOCAL_FOLER && make)
 } &> /dev/null
 
+if test -f "$LOCAL_FOLER/frodo/PQCtestKAT_kem"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && bash spinner.sh ./frodo/PQCtestKAT_kem -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 25. FRODO_1344 =====
+
+LOCAL_FOLER="$FOLDER_FRODO_1344"
+LOCAL_FILE="$FILE_FRODO_1344"
+ALGORITHM_NAME="FRODO_1344"
+index=25
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/frodo/PQCtestKAT_kem"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && bash spinner.sh ./frodo/PQCtestKAT_kem -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 26. CRYSTAL_512 =====
+
+LOCAL_FOLER="$FOLDER_CRYSTAL_512"
+LOCAL_FILE="$FILE_CRYSTAL_512"
+ALGORITHM_NAME="CRYSTAL_512"
+index=26
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 27. CRYSTAL_768 =====
+
+LOCAL_FOLER="$FOLDER_CRYSTAL_768"
+LOCAL_FILE="$FILE_CRYSTAL_768"
+ALGORITHM_NAME="CRYSTAL_768"
+index=27
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 28. CRYSTAL_1024 =====
+
+LOCAL_FOLER="$FOLDER_CRYSTAL_1024"
+LOCAL_FILE="$FILE_CRYSTAL_1024"
+ALGORITHM_NAME="CRYSTAL_1024"
+index=28
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/PQCgenKAT_kem"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && bash spinner.sh ./PQCgenKAT_kem -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 29. THREEBEARS_BABY =====
+
+LOCAL_FOLER="$FOLDER_THREEBEARS_BABY"
+LOCAL_FILE="$FILE_THREEBEARS_BABY"
+ALGORITHM_NAME="THREEBEARS_BABY"
+index=29
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
 if test -f "$LOCAL_FOLER/build/genkat"; then
 	echo "	$index.1 Make: OK"
 else
@@ -1108,12 +1325,52 @@ else
 	exit 1
 fi
 
-# ===== 25. THREEBEARS_MAMA =====
+# ===== 30. THREEBEARS_MAMA =====
+
+LOCAL_FOLER="$FOLDER_THREEBEARS_MAMA"
+LOCAL_FILE="$FILE_THREEBEARS_MAMA"
+ALGORITHM_NAME="THREEBEARS_MAMA"
+index=30
+
+echo " "
+echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"
+
+{
+	(cd $LOCAL_FOLER && make clean)
+	(cd $LOCAL_FOLER && make)
+} &> /dev/null
+
+if test -f "$LOCAL_FOLER/build/genkat"; then
+	echo "	$index.1 Make: OK"
+else
+	echo "	$index.1 Make: Unsuccessful"
+	exit 1
+fi
+
+(cd $LOCAL_FOLER && bash spinner.sh ./build/genkat -noConsoleOutput)
+
+if test -f "$LOCAL_FOLER/$LOCAL_FILE"; then
+	echo "	$index.2 Created statistics file: OK"
+else
+	echo "	$index.2 Created statistics file: Unsuccessful"
+	exit 1
+fi
+
+cp $LOCAL_FOLER/$LOCAL_FILE $FOLDER_STATISTICS/$LOCAL_FILE
+
+if test -f "$FOLDER_STATISTICS/$LOCAL_FILE"; then
+	echo "	$index.3 Moved statistics file: OK"
+else
+	echo "	$index.3 Moved statistics file: Unsuccessful"
+	exit 1
+fi
+
+# ===== 31. THREEBEARS_PAPA =====
 
 LOCAL_FOLER="$FOLDER_THREEBEARS_PAPA"
 LOCAL_FILE="$FILE_THREEBEARS_PAPA"
 ALGORITHM_NAME="THREEBEARS_PAPA"
-index=25
+index=31
 
 echo " "
 echo "$index. $ALGORITHM_NAME: Make and run. [Please wait...]"

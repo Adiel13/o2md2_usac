@@ -31,7 +31,7 @@ typedef struct
 ** RETURNS: void
 **
 **-------------------------------------------------------*/
-void bit_reverse_copy(complex* a, complex* a_rev_copy);
+void bit_reverse_copy(complex* a, int n);
 
 /*---------------------------------------------------------
 ** NAME: recursive_fft
@@ -115,11 +115,15 @@ void poly_mul(complex* a, complex* b, int n);
 **                        = (ab - xy) + i(ay + xb)
 */
 complex complex_mul(complex a, complex b);
+complex complex_mul_neon(complex a, complex b);
 
 /* complex_add - add real and imaginary parts of two complex numbers */
 complex complex_add(complex a, complex b);
+complex complex_add_neon(complex a, complex b);
 
 /* complex_add - subtract real and imaginary parts of two complex numbers */
 complex complex_sub(complex a, complex b);
+complex complex_sub_neon(complex a, complex b);
 
+void iterative_fft(complex* a, int n, int inv);
 #endif

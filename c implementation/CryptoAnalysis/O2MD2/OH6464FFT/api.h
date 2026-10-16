@@ -33,7 +33,9 @@ void GenerateConvolutionTraditional(unsigned long long* result, unsigned long lo
 
 void GenerateConvolutionFFT(unsigned long long* result, unsigned long long* f, unsigned long long* g);
 
-int keySeedIndex;
+void GenerateConvolutionFFT_Neon(unsigned long long* result, unsigned long long* f, unsigned long long* g);
+
+unsigned long long round_neon_double_to_ull(double val);
 
 
 #endif

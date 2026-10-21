@@ -44,15 +44,11 @@ The experiments consider three cryptographic operations:
 
 The repository contains **12 O2MD² implementation variants**, organized into three parameter configurations and four implementation strategies.
 
-\| Configuration | Baseline | FFT | NEON | FFT + NEON |
-
-\|---|---|---|---|---|
-
-\| OH6416 | OH6416 | OH6416FFT | OH6416NEON | OH6416FFTNEON |
-
-\| OH6432 | OH6432 | OH6432FFT | OH6432NEON | OH6432FFTNEON |
-
-\| OH6464 | OH6464 | OH6464FFT | OH6464NEON | OH6464FFTNEON |
+| Configuration | Baseline | FFT | NEON | FFT + NEON |
+|---|---|---|---|---|
+| OH6416 | OH6416 | OH6416FFT | OH6416NEON | OH6416FFTNEON |
+| OH6432 | OH6432 | OH6432FFT | OH6432NEON | OH6432FFTNEON |
+| OH6464 | OH6464 | OH6464FFT | OH6464NEON | OH6464FFTNEON |
 
 ### Baseline Implementations
 
@@ -80,25 +76,16 @@ These variants are evaluated independently because combining optimization techni
 
 ## Experimental Platform
 
-\| Component | Description |
-
-\|---|---|
-
-\| Development board | Raspberry Pi 4 |
-
-\| Processor | ARM Cortex-A72 |
-
-\| Instruction set | ARMv8-A |
-
-\| SIMD extension | ARM NEON / Advanced SIMD |
-
-\| Programming language | C |
-
-\| Cryptographic scheme | O2MD² |
-
-\| Evaluated operations | KeyGen, Encrypt, Decrypt |
-
-\| Experimental repetitions | 100 per evaluated configuration |
+| Component | Description |
+|---|---|
+| Development board | Raspberry Pi 4 |
+| Processor | ARM Cortex-A72 |
+| Instruction set | ARMv8-A |
+| SIMD extension | ARM NEON / Advanced SIMD |
+| Programming language | C |
+| Cryptographic scheme | O2MD² |
+| Evaluated operations | KeyGen, Encrypt, Decrypt |
+| Experimental repetitions | 100 per evaluated configuration |
 
 The Raspberry Pi 4 provides an ARM-based experimental environment for evaluating cryptographic implementations on resource-constrained computing platforms.
 
@@ -252,17 +239,17 @@ Each implementation should be validated before performance measurements are coll
 
 The recommended procedure is to:
 
-1\. Compile the selected implementation.
+1. Compile the selected implementation.
 
-2\. Execute the available cryptographic correctness tests.
+2. Execute the available cryptographic correctness tests.
 
-3\. Verify successful key generation, encryption, and decryption.
+3. Verify successful key generation, encryption, and decryption.
 
-4\. Execute the appropriate benchmark programs or scripts.
+4. Execute the appropriate benchmark programs or scripts.
 
-5\. Record execution-time measurements.
+5. Record execution-time measurements.
 
-6\. Export and analyze the experimental results.
+6. Export and analyze the experimental results.
 
 Executable names and benchmark commands are implementation-specific and should be verified in the corresponding source directory.
 
@@ -344,25 +331,25 @@ This repository is intended to support reproducible research in cryptographic pe
 
 Researchers attempting to reproduce the experiments should document:
 
-1\. Processor and hardware specifications.
+1. Processor and hardware specifications.
 
-2\. Operating system version.
+2. Operating system version.
 
-3\. Compiler version.
+3. Compiler version.
 
-4\. Compilation and optimization flags.
+4. Compilation and optimization flags.
 
-5\. Number of experimental repetitions.
+5. Number of experimental repetitions.
 
-6\. Timing methodology and measurement units.
+6. Timing methodology and measurement units.
 
-7\. Cryptographic correctness validation.
+7. Cryptographic correctness validation.
 
-8\. Processor frequency and thermal conditions.
+8. Processor frequency and thermal conditions.
 
-9\. Background system activity.
+9. Background system activity.
 
-10\. Statistical analysis methodology.
+10. Statistical analysis methodology.
 
 Comparisons should be performed under equivalent experimental conditions wherever possible.
 
@@ -402,21 +389,14 @@ This repository contains the research implementations used in the doctoral disse
 
 **Optimización por hardware del algoritmo criptográfico post-cuántico O2MD²**
 
-\| Field | Information |
-
-\|---|---|
-
-\| Doctoral researcher | Kevin Adiel Lajpop Ajpacajá |
-
-\| Institution | Universidad Francisco Marroquín (UFM) |
-
-\| Doctoral program | Doctorado en Ciencias de la Computación |
-
-\| Country | Guatemala |
-
-\| Year | 2026 |
-
-\| Doctoral advisor | Dr. Ricardo Neftalí Pontaza Rodas |
+| Field | Information |
+|---|---|
+| Doctoral researcher | Kevin Adiel Lajpop Ajpacajá |
+| Institution | Universidad Francisco Marroquín (UFM) |
+| Doctoral program | Doctorado en Ciencias de la Computación |
+| Country | Guatemala |
+| Year | 2026 |
+| Doctoral advisor | Dr. Ricardo Neftalí Pontaza Rodas |
 
 The doctoral research investigates hardware-oriented optimization strategies for the O2MD² cryptographic algorithm.
 

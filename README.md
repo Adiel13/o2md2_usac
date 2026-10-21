@@ -261,11 +261,9 @@ The experimental analysis focuses on execution-time differences between baseline
 
 For a baseline implementation with execution time $T_{\text{baseline}}$ and an optimized implementation with execution time $T_{\text{optimized}}$, speedup is defined as:
 
-$$
-
+```math
 S = \frac{T_{\text{baseline}}}{T_{\text{optimized}}}
-
-$$
+```
 
 Where:
 
@@ -279,11 +277,9 @@ Where:
 
 The percentage reduction in execution time is calculated as:
 
-$$
-
+```math
 R = \left(1-\frac{T_{\text{optimized}}}{T_{\text{baseline}}}\right)\times100
-
-$$
+```
 
 Positive values indicate reduced execution time, whereas negative values indicate increased execution time.
 
